@@ -26,9 +26,7 @@
     let input, label, formGroup;
     Object.entries(formSchema).forEach(function([key, { type, value }]) {
       input = document.createElement('input');
-      input.name = key;
-      input.type = type;
-      input.value = value;
+      Object.assign(input, { name: key, type, value });
       if (type === 'hidden') {
         form.appendChild(input);
       } else {
